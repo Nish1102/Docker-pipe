@@ -5,8 +5,8 @@ pipeline {
         stage('Run Nginx Container') {
             steps {
                 script {
-                    // Use 'pwd' instead of 'echo %CD%' to get the current working directory
-                    def currentDir = bat(script: 'pwd', returnStatus: true).trim()
+                    // Use 'cd' to change the working directory and print it
+                    def currentDir = bat(script: 'cd', returnStatus: true).trim()
 
                     echo "Current working directory: ${currentDir}"
 
