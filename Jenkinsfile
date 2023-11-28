@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                  git 'https://github.com/nish1102/Docker-pipe.git'
+                git 'https://github.com/nish1102/Docker-pipe.git'
             }
         }
 
