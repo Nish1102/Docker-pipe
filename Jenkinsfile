@@ -11,7 +11,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    def dockerImage = docker.build('noteimg:latest:latest', '.')
+                    def dockerImage = docker.build('noteimg:latest', '.')
                 }
             }
         }
@@ -19,7 +19,7 @@ pipeline {
         stage('Run Docker Container') {
             steps {
                 script {
-                    def dockerContainer = docker.image('noteimg:latest:latest').run('-p 8080:80')
+                    def dockerContainer = docker.image('noteimg:latest').run('-p 8080:80')
                 }
             }
         }
