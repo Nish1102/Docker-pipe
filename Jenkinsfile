@@ -5,7 +5,10 @@ pipeline {
         stage('Run Nginx Container') {
             steps {
                 script {
-                    docker.image('nginx:alpine').withRun('-p 8080:80 --name nginx-container')
+                    def nginxImage = docker.image('nginx:alpine')
+                    nginxImage.inside('-p 8080:80 --name nginx-container') {
+                        // Add any commands you want to run inside the container if needed
+                    }
                 }
             }
         }
@@ -25,4 +28,3 @@ pipeline {
         }
     }
 }
-
