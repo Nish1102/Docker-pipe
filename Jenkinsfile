@@ -1,13 +1,10 @@
 pipeline {
-    agent {
-        label 'docker-agent'
-    }
+    agent any
     stages {
         stage('Test') {
             steps {
-                sh 'docker run node:16-alpine node --version'
+                sh '/usr/bin/docker run node:16-alpine node --version'
             }
         }
     }
 }
-
