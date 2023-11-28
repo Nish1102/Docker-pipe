@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                bat "\"${DOCKER_PATH}\" run node:16-alpine node --version"
+                sh "\"${DOCKER_PATH}\" run node:16-alpine node --version"
             }
         }
     }
