@@ -1,10 +1,8 @@
 pipeline {
-    agent any
+    agent {
+        label 'windows'
+    }
     stages {
-        stage('Test') {
-            steps {
-                bat '%DOCKER_HOME% run node:16-alpine node --version'
-            }
-        }
+        // Your stages here
     }
 }
