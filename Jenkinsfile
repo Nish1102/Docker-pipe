@@ -6,7 +6,12 @@ pipeline {
             steps {
                 script {
                     def nginxImage = docker.image('nginx:alpine')
-                    nginxImage.inside('-p 8080:80 --name nginx-container') {
+
+                    // Use PWD to get the current working directory
+                    def currentDir = bat(script: 'echo %CD%', returnStatus: true).trim()
+
+                    // Run the Nginx container
+                    nginxImage.inside("-p 8080:80 --name nginx-container -w ${currentDir}") {
                         // Add any commands you want to run inside the container if needed
                     }
                 }
